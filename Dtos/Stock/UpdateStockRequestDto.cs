@@ -6,9 +6,8 @@ using Api.Models;
 
 namespace Api.Dtos.Stock
 {
-    public class StockDto
+    public class UpdateStockRequestDto
     {
-        public int Id { get; set; }
         public string Symbol { get; set; } = string.Empty;
 
         public string CompanyName { get; set; } = string.Empty;
@@ -20,6 +19,5 @@ namespace Api.Dtos.Stock
         public string Industry { get; set; } = string.Empty;
 
         public long MarketCap { get; set; }
-
     }
 }

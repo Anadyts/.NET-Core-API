@@ -163,3 +163,4 @@ D:\Code\practice\ASP.NET\Api\obj\Debug\net9.0\refint\Api.dll
 D:\Code\practice\ASP.NET\Api\obj\Debug\net9.0\Api.pdb
 D:\Code\practice\ASP.NET\Api\obj\Debug\net9.0\Api.genruntimeconfig.cache
 D:\Code\practice\ASP.NET\Api\obj\Debug\net9.0\ref\Api.dll
+D:\Code\practice\ASP.NET\Api\obj\Debug\net9.0\Api.sourcelink.json

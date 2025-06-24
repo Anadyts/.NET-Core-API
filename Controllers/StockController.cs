@@ -36,7 +36,7 @@ namespace Api.Controllers
             {
                 return NotFound();
             }
-            return Ok(stock);
+            return Ok(stock.ToStockDto());
         }
 
         [HttpPost]
@@ -45,7 +45,29 @@ namespace Api.Controllers
             var stockModel = stockDto.ToStockFromCreateDto();
             _db.Stock.Add(stockModel);
             _db.SaveChanges();
-            return CreatedAtAction(nameof(GetById), new {id = stockModel.Id}, stockModel.ToStockDto());
+            return CreatedAtAction(nameof(GetById), new { id = stockModel.Id }, stockModel.ToStockDto());
+        }
+
+        [HttpPut]
+        [Route("{id}")]
+        public IActionResult Update([FromRoute] int id, [FromBody] UpdateStockRequestDto updateDto)
+        {
+            var stockModel = _db.Stock.FirstOrDefault(s => s.Id == id);
+
+            if (stockModel == null)
+            {
+                return NotFound();
+            }
+            stockModel.Symbol = updateDto.Symbol;
+            stockModel.CompanyName = updateDto.CompanyName;
+            stockModel.Purchase = updateDto.Purchase;
+            stockModel.LastDiv = updateDto.LastDiv;
+            stockModel.Industry = updateDto.Industry;
+            stockModel.MarketCap = updateDto.MarketCap;
+
+            _db.SaveChanges();
+
+            return Ok(stockModel.ToStockDto());
         }
     }
 }
